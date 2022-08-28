@@ -1,5 +1,11 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      const complement = target - array[i];
+      if (array[j] === complement) return true;
+    }
+  }
+  return false;
 }
 
 /* 
@@ -8,10 +14,19 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  create a for loop to look through all the elements of the array
+      the first for loop iterates through the array to find the first value
+        the second loop finds the complement of the first value which when added together
+        gives the target value
+          if statement checks whether the vaalue complements the pair and returns true
+  outside the for loop it returns false
 */
 
 /*
   Add written explanation of your solution here
+  I start by creating two loops, allowing me to iterate through every 
+  combination of numbers in the array. 
+  Now I can test the combos to see if any of them add up to target.
 */
 
 // You can run `node index.js` to view these console logs
